@@ -3,6 +3,7 @@ import React from 'react';
 import { useMoralis } from 'react-moralis';
 
 import Avatar from './Avatar';
+import ChangeUsername from './ChangeUsername';
 
 function Header() {
   const { user } = useMoralis();
@@ -27,7 +28,10 @@ function Header() {
           <h1 className="text-3xl">
             Welcome to the Metaverse
           </h1>
-          <h2 className="text-5xl font-bold truncate">{user?.getUsername()}</h2>
+          <h2 className="text-5xl font-bold truncate">
+            {user?.getUsername()}
+          </h2>
+          <ChangeUsername />
         </div>
       </div>
     </div>
