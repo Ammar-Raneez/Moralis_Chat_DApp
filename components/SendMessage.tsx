@@ -15,6 +15,8 @@ function SendMessage({ endOfMessagesRef }: SendMessageProps) {
       return;
     }
 
+    // Creates a table called 'Messages' in the Moralis dashboard and stores
+    // the object
     const Messages = Moralis.Object.extend('Messages');
     const messages = new Messages();
 

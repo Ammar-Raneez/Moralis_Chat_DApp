@@ -4,7 +4,7 @@ import { useMoralis } from 'react-moralis';
 
 interface AvatarProps {
   username?: string;
-  logoutOnPress: boolean
+  logoutOnPress?: boolean
 }
 
 function Avatar({ username, logoutOnPress }: AvatarProps) {
