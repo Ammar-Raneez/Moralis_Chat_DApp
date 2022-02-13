@@ -20,25 +20,28 @@ function SendMessage({ endOfMessagesRef }: SendMessageProps) {
     const Messages = Moralis.Object.extend('Messages');
     const messages = new Messages();
 
-    messages.save({
-      username: user?.getUsername(),
-      ethAddress: user?.get('ethAddress'),
-      message
-    }).then((message: string) => {
-
-    }, (err: Error) => {
-      console.log(err.message);
-    });
+    messages
+      .save({
+        username: user?.getUsername(),
+        ethAddress: user?.get('ethAddress'),
+        message,
+      })
+      .then(
+        (message: string) => {},
+        (err: Error) => {
+          console.log(err.message)
+        }
+      );
 
     endOfMessagesRef.current.scrollIntoView({ behavior: 'smooth' });
     setMessage('');
   }
 
   return (
-    <form className="flex fixed bottom-10 px-6 py-4 bg-black opacity-80 w-11/12 max-w-2xl shadow-xl rounded-full border-4 border-blue-400">
+    <form className="fixed bottom-10 flex w-11/12 max-w-2xl rounded-full border-4 border-blue-400 bg-black px-6 py-4 opacity-80 shadow-xl">
       <input
         type="text"
-        className="pr-5 flex-grow outline-none bg-transparent text-white placeholder-gray-500"
+        className="flex-grow bg-transparent pr-5 text-white placeholder-gray-500 outline-none"
         placeholder={`Enter a Message ${user?.getUsername()}...`}
         value={message}
         onChange={(e) => setMessage(e.target.value)}

@@ -14,11 +14,16 @@ function Messages() {
     'Messages',
 
     // query for the Messages array sorted in ascending order of date
-    (query) => query.ascending('createdAt')
-      .greaterThan('createdAt', new Date(Date.now() - 1000 * 60 * MIN_DURATION)),
+    (query) =>
+      query
+        .ascending('createdAt')
+        .greaterThan(
+          'createdAt',
+          new Date(Date.now() - 1000 * 60 * MIN_DURATION)
+        ),
     [],
     {
-      live: true
+      live: true,
     }
   );
 
@@ -41,7 +46,7 @@ function Messages() {
         <SendMessage endOfMessagesRef={endOfMessagesRef} />
       </div>
 
-      <div ref={endOfMessagesRef} className="text-center text-gray-400 mt-5">
+      <div ref={endOfMessagesRef} className="mt-5 text-center text-gray-400">
         <p>You're up to date {user?.getUsername()}</p>
       </div>
     </div>

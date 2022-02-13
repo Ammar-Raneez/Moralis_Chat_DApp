@@ -6,23 +6,23 @@ function Login() {
   const { authenticate } = useMoralis();
 
   return (
-    <div className="bg-black relative">
+    <div className="relative bg-black">
       <h1>Login</h1>
-      <div className="flex flex-col absolute z-50 h-4/6 items-center w-full justify-center space-y-10">
+      <div className="absolute z-50 flex h-4/6 w-full flex-col items-center justify-center space-y-10">
         <Image
           src="https://avatars.githubusercontent.com/u/54928498?v=4"
           height={200}
           width={200}
-          className="object-cover rounded-full"
+          className="rounded-full object-cover"
         />
         <button
           onClick={() => authenticate()}
-          className="bg-yellow-500 rounded-lg p-5 font-bold animate-pulse"
+          className="animate-pulse rounded-lg bg-yellow-500 p-5 font-bold"
         >
           Login to the METAVERSE
         </button>
       </div>
-      <div className="w-full h-screen">
+      <div className="h-screen w-full">
         <Image
           src="https://i.imgur.com/WYAjt3T.jpeg"
           layout="fill"
@@ -30,7 +30,7 @@ function Login() {
         />
       </div>
     </div>
-  )
+  );
 }
 
 export default Login;
